@@ -1,17 +1,20 @@
 <?php
 require '../helpers.php';
+require basePath('Router.php');
 require basePath('Database.php');
+
+
 $config = require basePath('config/db.php');
 
-$db = new Database($config);
+//Instantiating the router
+$router = new Router;
 
+//get routes
+$routes = require basePath('routes.php');
+
+//get current URI and HTTP mrthod
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 
-require basePath('Router.php');
-
-$router = new Router;
-
-$routes = require basePath('routes.php');
-
+// Route the request
 $router->route($uri, $method);
