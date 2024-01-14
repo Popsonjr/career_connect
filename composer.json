@@ -1,0 +1,16 @@
+{
+    "name": "popsonjr/career_connect",
+    "description": "Job listing application",
+    "authors": [
+        {
+            "name": "Muhammad Popoola",
+            "email": "popoolama@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
