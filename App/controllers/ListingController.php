@@ -3,11 +3,12 @@
 namespace App\Controllers;
 
 use Framework\Database;
+use Framework\Validation;
 
 class ListingController
 {
     protected $db;
-    
+
     public function __construct()
     {
         $config = require basePath('config/db.php');
@@ -19,7 +20,8 @@ class ListingController
      *
      * @return void
      */
-    public function index() {
+    public function index()
+    {
         $listings = $this->db->query("SELECT * FROM listings")->fetchAll();
 
         loadView('listings/index', [
@@ -32,7 +34,8 @@ class ListingController
      *
      * @return void
      */
-    public function create() {
+    public function create()
+    {
         loadView('listings/create');
     }
 
@@ -41,7 +44,8 @@ class ListingController
      *
      * @return void
      */
-    public function show($params) {
+    public function show($params)
+    {
         $id = $params['id'] ?? '';
 
         $params = [
