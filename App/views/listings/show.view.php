@@ -31,9 +31,11 @@ loadPartials('navbar');
                     <strong>Location:</strong> <?= $listing->city ?>, <?= $listing->state ?>
                     <span class="text-xs bg-blue-500 text-white rounded-full px-2 py-1 ml-2">Local</span>
                 </li>
+                <?php if (!empty($listing->tags)) : ?>
                 <li class="mb-2">
                     <strong>Tags:</strong> <?= $listing->tags ?>
                 </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
