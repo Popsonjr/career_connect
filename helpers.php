@@ -36,11 +36,12 @@ function loadView($name, $data = [])
  * @param string name
  * @return void
  */
-function loadPartials($name)
+function loadPartials($name, $data = [])
 {
     $partialPath =  basePath("App/views/partials/{$name}.php");
 
     if (file_exists($partialPath)) {
+        extract($data);
         require $partialPath;
     } else {
         echo "View '{$partialPath} not found!'";
