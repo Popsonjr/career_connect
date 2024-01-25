@@ -7,7 +7,7 @@ use Framework\Database;
 class HomeController
 {
     protected $db;
-    
+
     public function __construct()
     {
         $config = require basePath('config/db.php');
@@ -19,8 +19,9 @@ class HomeController
      *
      * @return void
      */
-    public function index() {
-        $listings = $this->db->query("SELECT * FROM listings LIMIT 6")->fetchAll();
+    public function index()
+    {
+        $listings = $this->db->query("SELECT * FROM listings ORDER BY created_at DESC LIMIT 6")->fetchAll();
 
         loadView('home', [
             'listings' => $listings
